@@ -4,10 +4,10 @@ const fs = require('fs')
 const pdfMerger = async (p1,p2,filename) => {
     await merger.add(p1);
     await merger.add(p2);
-    const path = `public/${filename}.pdf`;
+    const path = `${filename}.pdf`;
     const status = fs.existsSync(path,filename);
     if(!status){
-        await merger.save(`public/${filename}.pdf`);
+        await merger.save(`${filename}.pdf`);
     }
 }
 module.exports = {pdfMerger} 
