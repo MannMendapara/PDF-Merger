@@ -6,10 +6,13 @@ const PDFMerger = require("pdf-merger-js");
 const fs = require("fs");
 const app = express();
 const merger = new PDFMerger();
-app.get("/", (req, res) => {
+const cors = require("cors")
+app.use(cors())
+app.use(express.static('public'));
+app.get("https://pdf-merger-psi.vercel.app/", (req, res) => {
   res.sendFile(path.join(__dirname + "/index.html"));
 });
-app.post("/merge", upload.array("pdfInput", 2), async function (req, res) {
+app.post("https://pdf-merger-psi.vercel.app/merge", upload.array("pdfInput", 2), async function (req, res) {
   const file1path = path.join(__dirname, req.files[0].path);
   const file2path = path.join(__dirname, req.files[1].path);
   var filename = `merged_${req.files[0].filename}_${req.files[1].filename}`;
