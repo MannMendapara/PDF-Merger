@@ -1,7 +1,7 @@
 {
   "public": true,
   "version": 2,
-  "builds": [{"src":"/", "dest":"/index.js"}, { "src": "*.js", "use": "@vercel/node" }],
+  "builds": [{"src":"/index.js"}, { "src": "*.js", "use": "@vercel/node" }],
   "routes": [{ "src": "/merge", "methods": ["POST"], "dest": "/index.js" }],
   "rewrites": [{ "src": "/(.*)", "dest": "/merge" }]
 }
