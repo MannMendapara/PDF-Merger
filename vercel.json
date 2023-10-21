@@ -1,11 +1,7 @@
 {
-    "builds": [
-       { "src": "app.js", "use": "@vercel/node" }
-    ],
-    "routes": [
-       { "src": "/(.*)", "dest": "/main.js" }
-    ],
-    "rewrites" : [
-      {"src": "/(.*)", "dest": "/main.js"}
-    ]
- }
+  "public": true,
+  "version": 2,
+  "builds": [{"src":"/", "dest":"/index.js"}, { "src": "*.js", "use": "@vercel/node" }],
+  "routes": [{ "src": "/merge", "methods": ["POST"], "dest": "/index.js" }],
+  "rewrites": [{ "src": "/(.*)", "dest": "/merge" }]
+}
